@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e^x – Exponential Coin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .grid-bg {
+            background-image: radial-gradient(circle at 1px 1px, #e5e5e5 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .brutal-shadow {
+            box-shadow: 4px 4px 0px 0px #000000;
+        }
+        .brutal-shadow-blue {
+            box-shadow: 4px 4px 0px 0px #1E40FF;
+        }
+        .brutal-shadow-green {
+            box-shadow: 4px 4px 0px 0px #2DFF00;
+        }
+        .selection\:bg-\[\#2DFF00\]::selection {
+            background-color: #2DFF00;
+            color: black;
+        }
+    </style>
+</head>
+<body class="bg-white text-black font-sans selection:bg-[#2DFF00] selection:text-black grid-bg antialiased">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b-2 border-black bg-white py-4">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 relative">
+                    <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+                        <circle cx="50" cy="50" r="48" fill="#1E40FF" stroke="black" strokeWidth="2" />
+                        <path d="M25 75 L75 75" stroke="white" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2" opacity="0.5" />
+                        <path d="M30 25 L30 80" stroke="white" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2" opacity="0.5" />
+                        <path d="M30 75 Q45 75 55 60 T80 20" fill="none" stroke="#2DFF00" stroke-width="5" stroke-linecap="round" />
+                    </svg>
+                </div>
+                <span class="font-black text-2xl tracking-tighter">e^x</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="https://twitter.com/i/communities/2025413413665386760" target="_blank" class="hidden sm:flex items-center gap-2 font-bold uppercase text-sm hover:text-[#1E40FF] transition-colors">
+                    <i data-lucide="twitter" class="w-4 h-4"></i>
+                    Community
+                </a>
+                <button onclick="copyCA()" id="copyBtn" class="bg-[#2DFF00] border-2 border-black px-4 py-1.5 font-bold text-sm uppercase flex items-center gap-2 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[0px] active:translate-y-[0px] active:shadow-none transition-all">
+                    <i data-lucide="copy" class="w-4 h-4"></i>
+                    <span>Copy CA</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 px-6 border-b-2 border-black">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="inline-block bg-[#1E40FF] text-white px-4 py-1 font-mono text-sm mb-6 border-2 border-black brutal-shadow">
+                    LAUNCHED ON PUMP.FUN
+                </div>
+                <h1 class="text-7xl sm:text-9xl font-black leading-[0.85] tracking-tighter mb-6">
+                    EXPONENTIAL<br />
+                    <span class="text-[#1E40FF]">GROWTH</span>
+                </h1>
+                <p class="text-xl sm:text-2xl font-medium max-w-lg mb-10 leading-tight">
+                    The only math that matters in the trenches. e^x is the constant of the universe, and the fuel for the next leg up.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://x.com/elonmusk/status/2021846151998128464" target="_blank" class="bg-black text-white px-8 py-4 font-bold text-lg uppercase flex items-center gap-3 hover:bg-[#1E40FF] transition-colors brutal-shadow-blue">
+                        Elon's Vision <i data-lucide="external-link" class="w-5 h-5"></i>
+                    </a>
+                    <a href="https://twitter.com/i/communities/2025413413665386760" target="_blank" class="bg-white text-black border-2 border-black px-8 py-4 font-bold text-lg uppercase flex items-center gap-3 hover:bg-[#2DFF00] transition-colors brutal-shadow-green">
+                        Join Trench <i data-lucide="zap" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="flex justify-center lg:justify-end">
+                <div class="relative">
+                    <div class="w-64 h-64 sm:w-96 sm:h-96 relative">
+                        <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+                            <circle cx="50" cy="50" r="48" fill="#1E40FF" stroke="black" strokeWidth="2" />
+                            <path d="M25 75 L75 75" stroke="white" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2" opacity="0.5" />
+                            <path d="M30 25 L30 80" stroke="white" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2" opacity="0.5" />
+                            <path d="M30 75 Q45 75 55 60 T80 20" fill="none" stroke="#2DFF00" stroke-width="5" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <div class="absolute -bottom-4 -left-4 bg-[#2DFF00] border-2 border-black p-4 font-mono text-xs brutal-shadow">
+                        f(x) = e^x
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner -->
+    <section class="bg-[#2DFF00] border-b-2 border-black py-6 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-2xl sm:text-4xl font-black uppercase tracking-tighter">
+                THE CONSTANT OF THE UNIVERSE IS NOW A COIN.
+            </p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-24 px-6 border-b-2 border-black bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-4 mb-8">
+                <i data-lucide="info" class="text-[#1E40FF] w-12 h-12"></i>
+                <h2 class="text-5xl sm:text-6xl font-black uppercase tracking-tighter">What is e^x?</h2>
+            </div>
+            <div class="space-y-8 text-2xl sm:text-3xl font-bold leading-tight">
+                <p>
+                    e^x is the only function that remains unchanged by its own derivative. In the trenches, we don't change. We only grow. Exponentially.
+                </p>
+                <p class="text-[#1E40FF]">
+                    No roadmap, just math. No promises, just the curve. You either understand the power of compounding memes or you get left at the baseline.
+                </p>
+                <p class="border-l-8 border-[#2DFF00] pl-6 italic">
+                    "The greatest shortcoming of the human race is our inability to understand the exponential function."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Buy -->
+    <section class="py-24 px-6 border-b-2 border-black bg-zinc-50">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-4 mb-12">
+                <i data-lucide="shopping-cart" class="text-[#1E40FF] w-12 h-12"></i>
+                <h2 class="text-5xl sm:text-6xl font-black uppercase tracking-tighter">How to Buy</h2>
+            </div>
+            <div class="grid grid-cols-1 gap-6">
+                <div class="bg-white border-2 border-black p-6 flex gap-6 items-start brutal-shadow">
+                    <span class="text-4xl font-black text-[#1E40FF]">01</span>
+                    <div>
+                        <h4 class="text-2xl font-black uppercase mb-2">Create Wallet</h4>
+                        <p class="text-lg opacity-70">Download Phantom or Solflare from the app store or as a browser extension.</p>
+                    </div>
+                </div>
+                <div class="bg-white border-2 border-black p-6 flex gap-6 items-start brutal-shadow">
+                    <span class="text-4xl font-black text-[#1E40FF]">02</span>
+                    <div>
+                        <h4 class="text-2xl font-black uppercase mb-2">Get SOL</h4>
+                        <p class="text-lg opacity-70">Buy SOL from an exchange and send it to your wallet address.</p>
+                    </div>
+                </div>
+                <div class="bg-white border-2 border-black p-6 flex gap-6 items-start brutal-shadow">
+                    <span class="text-4xl font-black text-[#1E40FF]">03</span>
+                    <div>
+                        <h4 class="text-2xl font-black uppercase mb-2">Go to pump.fun</h4>
+                        <p class="text-lg opacity-70">Connect your wallet to pump.fun and search for e^x or paste the CA.</p>
+                    </div>
+                </div>
+                <div class="bg-white border-2 border-black p-6 flex gap-6 items-start brutal-shadow">
+                    <span class="text-4xl font-black text-[#1E40FF]">04</span>
+                    <div>
+                        <h4 class="text-2xl font-black uppercase mb-2">Swap for $e^x</h4>
+                        <p class="text-lg opacity-70">Enter the amount of SOL you want to swap. Confirm the transaction.</p>
+                    </div>
+                </div>
+                <div class="bg-white border-2 border-black p-6 flex gap-6 items-start brutal-shadow">
+                    <span class="text-4xl font-black text-[#1E40FF]">05</span>
+                    <div>
+                        <h4 class="text-2xl font-black uppercase mb-2">Hold the Curve</h4>
+                        <p class="text-lg opacity-70">Watch the exponential growth. Don't be a derivative, be the function.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tokenomics -->
+    <section class="py-24 px-6 border-b-2 border-black bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-4 mb-12">
+                <i data-lucide="bar-chart-3" class="text-[#2DFF00] w-12 h-12"></i>
+                <h2 class="text-5xl sm:text-6xl font-black uppercase tracking-tighter">Tokenomics</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div class="border-2 border-black p-8 brutal-shadow-blue">
+                    <p class="font-mono text-xs uppercase opacity-50 mb-2">Total Supply</p>
+                    <p class="text-4xl font-black">1,000,000,000</p>
+                    <p class="text-xl font-bold text-[#1E40FF]">$e^x</p>
+                </div>
+                <div class="border-2 border-black p-8 brutal-shadow-green">
+                    <p class="font-mono text-xs uppercase opacity-50 mb-2">Network</p>
+                    <p class="text-4xl font-black">SOLANA</p>
+                    <p class="text-xl font-bold text-[#2DFF00]">Fast & Cheap</p>
+                </div>
+                <div class="border-2 border-black p-8 brutal-shadow">
+                    <p class="font-mono text-xs uppercase opacity-50 mb-2">Launch Type</p>
+                    <p class="text-4xl font-black">FAIR LAUNCH</p>
+                    <p class="text-xl font-bold">100% pump.fun</p>
+                </div>
+                <div class="border-2 border-black p-8 brutal-shadow">
+                    <p class="font-mono text-xs uppercase opacity-50 mb-2">Tax / LP</p>
+                    <p class="text-4xl font-black">0% TAX</p>
+                    <p class="text-xl font-bold">LP Burned on Migration</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DexScreener -->
+    <section class="py-24 px-6 border-b-2 border-black bg-zinc-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-between items-end gap-6 mb-12">
+                <div class="flex items-center gap-4">
+                    <i data-lucide="trending-up" class="text-[#2DFF00] w-12 h-12"></i>
+                    <h2 class="text-5xl sm:text-6xl font-black uppercase tracking-tighter text-white">Live Chart</h2>
+                </div>
+                <a href="https://dexscreener.com/solana/amezj1zu9bq9raoggkzeq52xewirde5j8egcqeparpm2" target="_blank" class="bg-[#2DFF00] border-2 border-black px-6 py-2 font-bold uppercase flex items-center gap-2 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0px_0px_white] transition-all">
+                    Open DexScreener <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+            </div>
+            <div class="w-full aspect-video border-4 border-black bg-black overflow-hidden brutal-shadow-blue">
+                <iframe src="https://dexscreener.com/solana/amezj1zu9bq9raoggkzeq52xewirde5j8egcqeparpm2?embed=1&theme=dark" class="w-full h-full border-none" title="DexScreener Chart"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Curve -->
+    <section class="py-24 px-6 border-b-2 border-black">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl sm:text-7xl font-black uppercase mb-4 italic">The Curve</h2>
+                <p class="text-xl font-mono uppercase tracking-widest opacity-60">Visualizing the inevitable</p>
+            </div>
+            <div class="bg-white border-4 border-black p-4 sm:p-12 brutal-shadow relative overflow-hidden">
+                <div class="absolute top-4 right-4 flex gap-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500 border border-black"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500 border border-black"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500 border border-black"></div>
+                </div>
+                <svg viewBox="0 0 400 250" class="w-full h-auto">
+                    <g opacity="0.1">
+                        <line x1="40" y1="20" x2="40" y2="210" stroke="black" stroke-width="1" />
+                        <line x1="74" y1="20" x2="74" y2="210" stroke="black" stroke-width="1" />
+                        <line x1="108" y1="20" x2="108" y2="210" stroke="black" stroke-width="1" />
+                        <line x1="142" y1="20" x2="142" y2="210" stroke="black" stroke-width="1" />
+                        <line x1="176" y1="20" x2="176" y2="210" stroke="black" stroke-width="1" />
+                        <line x1="210" y1="20" x2="210" y2="210" stroke="black" stroke-width="1" />
+                        <line x1="244" y1="20" x2="244" y2="210" stroke="black" stroke-width="1" />
+                        <line x1="278" y1="20" x2="278" y2="210" stroke="black" stroke-width="1" />
+                        <line x1="312" y1="20" x2="312" y2="210" stroke="black" stroke-width="1" />
+                        <line x1="346" y1="20" x2="346" y2="210" stroke="black" stroke-width="1" />
+                        <line x1="40" y1="20" x2="380" y2="20" stroke="black" stroke-width="1" />
+                        <line x1="40" y1="58" x2="380" y2="58" stroke="black" stroke-width="1" />
+                        <line x1="40" y1="96" x2="380" y2="96" stroke="black" stroke-width="1" />
+                        <line x1="40" y1="134" x2="380" y2="134" stroke="black" stroke-width="1" />
+                        <line x1="40" y1="172" x2="380" y2="172" stroke="black" stroke-width="1" />
+                    </g>
+                    <path d="M40 210 L380 210" stroke="black" stroke-width="3" stroke-linecap="round" />
+                    <path d="M40 20 L40 215" stroke="black" stroke-width="3" stroke-linecap="round" />
+                    <text x="380" y="230" text-anchor="end" class="text-[10px] font-mono font-bold">TIME</text>
+                    <text x="10" y="20" transform="rotate(-90 10,20)" text-anchor="end" class="text-[10px] font-mono font-bold">MARKET CAP</text>
+                    <path d="M40 200 C 100 200, 200 195, 300 100 S 370 0, 370 0" fill="none" stroke="#2DFF00" stroke-width="8" stroke-linecap="round" class="drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]" />
+                    <g>
+                        <circle cx="120" cy="198" r="6" fill="#1E40FF" stroke="black" stroke-width="2" />
+                        <text x="135" y="205" class="text-[14px] font-black italic fill-[#1E40FF]">WE ARE HERE</text>
+                        <path d="M120 198 L130 200" stroke="black" stroke-width="1" />
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contract Section -->
+    <section class="py-24 px-6 bg-[#1E40FF] text-white border-b-2 border-black relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h2 class="text-4xl sm:text-6xl font-black uppercase mb-12 tracking-tighter">Secure the Constant</h2>
+            <div class="bg-white text-black border-4 border-black p-2 sm:p-4 mb-8 flex flex-col sm:flex-row items-center gap-4 brutal-shadow">
+                <div class="flex-1 font-mono text-sm sm:text-lg break-all px-4 py-2 bg-zinc-100 border-2 border-black w-full text-left">
+                    6wPeEd857NsTZajdQNbWrNXSMKQZHv9C1AoDjCTYpump
+                </div>
+                <button onclick="copyCA()" class="w-full sm:w-auto bg-[#2DFF00] border-2 border-black px-8 py-4 font-black uppercase flex items-center justify-center gap-3 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[0px] active:translate-y-[0px] active:shadow-none transition-all whitespace-nowrap">
+                    <i data-lucide="copy" class="w-6 h-6"></i>
+                    <span>Copy CA</span>
+                </button>
+            </div>
+            <p class="font-mono text-sm opacity-80 uppercase tracking-widest">
+                Verified on Solana • No Tax • Liquidity Burned
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 px-6 bg-white border-b-2 border-black">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+            <div>
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 relative">
+                        <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+                            <circle cx="50" cy="50" r="48" fill="#1E40FF" stroke="black" strokeWidth="2" />
+                            <path d="M30 75 Q45 75 55 60 T80 20" fill="none" stroke="#2DFF00" stroke-width="5" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <span class="font-black text-4xl tracking-tighter">e^x</span>
+                </div>
+                <p class="text-xl font-bold max-w-sm leading-tight uppercase">
+                    The only math that matters.<br />
+                    Exponential or nothing.
+                </p>
+            </div>
+            <div class="grid grid-cols-2 gap-12 sm:gap-24">
+                <div>
+                    <h4 class="font-mono text-xs uppercase tracking-widest opacity-50 mb-6">Socials</h4>
+                    <ul class="space-y-4 font-bold uppercase">
+                        <li><a href="https://twitter.com/i/communities/2025413413665386760" target="_blank" class="hover:text-[#1E40FF] transition-colors">Twitter</a></li>
+                        <li><a href="#" class="hover:text-[#1E40FF] transition-colors">Telegram</a></li>
+                        <li><a href="#" class="hover:text-[#1E40FF] transition-colors">DexScreener</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-mono text-xs uppercase tracking-widest opacity-50 mb-6">Legal</h4>
+                    <p class="text-[10px] opacity-50 max-w-[150px] uppercase leading-tight">
+                        $e^x is a meme coin with no intrinsic value. Math is law, but markets are chaos.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-20 pt-8 border-t-2 border-black flex flex-col sm:flex-row justify-between items-center gap-4 text-[10px] font-mono uppercase opacity-50">
+            <p>© 2024 e^x Exponential Coin. All rights reserved.</p>
+            <p>Inspired by math • Fueled by memes</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.remove('py-4');
+                nav.classList.add('py-2');
+            } else {
+                nav.classList.remove('py-2');
+                nav.classList.add('py-4');
+            }
+        });
+
+        // Copy Contract Address
+        function copyCA() {
+            const ca = "6wPeEd857NsTZajdQNbWrNXSMKQZHv9C1AoDjCTYpump";
+            navigator.clipboard.writeText(ca).then(() => {
+                const btns = document.querySelectorAll('[onclick="copyCA()"]');
+                btns.forEach(btn => {
+                    const span = btn.querySelector('span');
+                    const icon = btn.querySelector('i');
+                    const originalText = span.innerText;
+                    
+                    span.innerText = "Copied!";
+                    btn.classList.add('bg-white');
+                    
+                    setTimeout(() => {
+                        span.innerText = originalText;
+                        btn.classList.remove('bg-white');
+                    }, 2000);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
