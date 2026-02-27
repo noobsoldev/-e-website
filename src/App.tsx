@@ -154,7 +154,7 @@ export default function App() {
               { step: "01", title: "Create Wallet", desc: "Download Phantom or Solflare from the app store or as a browser extension." },
               { step: "02", title: "Get SOL", desc: "Buy SOL from an exchange and send it to your wallet address." },
               { step: "03", title: "Go to pump.fun", desc: "Connect your wallet to pump.fun and search for e^x or paste the CA." },
-              { step: "04", title: "Swap for $e^x", desc: "Enter the amount of SOL you want to swap. Confirm the transaction." },
+              { step: "04", title: "Swap for $e", desc: "Enter the amount of SOL you want to swap. Confirm the transaction." },
               { step: "05", title: "Hold the Curve", desc: "Watch the exponential growth. Don't be a derivative, be the function." }
             ].map((item, i) => (
               <div key={i} className="bg-white border-2 border-black p-6 flex gap-6 items-start brutal-shadow">
@@ -180,7 +180,7 @@ export default function App() {
             <div className="border-2 border-black p-8 brutal-shadow-blue">
               <p className="font-mono text-xs uppercase opacity-50 mb-2">Total Supply</p>
               <p className="text-4xl font-black">1,000,000,000</p>
-              <p className="text-xl font-bold text-[#1E40FF]">$e^x</p>
+              <p className="text-xl font-bold text-[#1E40FF]">$e</p>
             </div>
             <div className="border-2 border-black p-8 brutal-shadow-green">
               <p className="font-mono text-xs uppercase opacity-50 mb-2">Network</p>
@@ -328,7 +328,7 @@ export default function App() {
             <div>
               <h4 className="font-mono text-xs uppercase tracking-widest opacity-50 mb-6">Legal</h4>
               <p className="text-[10px] opacity-50 max-w-[150px] uppercase leading-tight">
-                $e^x is a meme coin with no intrinsic value. Math is law, but markets are chaos.
+                $e is a meme coin with no intrinsic value. Math is law, but markets are chaos.
               </p>
             </div>
           </div>
